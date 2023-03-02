@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ModalBox from './components/Modal';
+
+import { CharactersView } from './features/characters/CharactersView';
+import { ChartView } from './features/chart/ChartView';
+import { ModalView } from './features/modal/ModalView';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <><div className='chart'>
+        <ChartView />
+      </div>
+      <div className="App">
+        <CharactersView />
+        <ModalView />
+        {/* <ModalBox /> */}
+      </div>    
+    </>
   );
 }
 
