@@ -31,11 +31,6 @@ const ModalBox = (props) => {
         <List
           sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         >
-          {/* <ListItem alignItems="flex-start"> */}
-          {/* <ListItemAvatar>
-              <Avatar alt="text" src="/static/images/avatar/1.jpg" />
-            </ListItemAvatar> */}
-
           <Typography id="modal-modal-title" variant="h6" component="h2">
             character name - image
           </Typography>

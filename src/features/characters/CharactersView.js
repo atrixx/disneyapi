@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCharacters } from './charactersSlice'
+import { fetchCharacters } from './charactersSlice';
 
 import { Container } from '@mui/system';
 import { Box, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import { ModalView } from '../../features/modal/ModalView';
-
-import Modal from '@mui/material/Modal';
-
-//import other actions
 
 const columns = [
   // {
@@ -54,7 +49,7 @@ const columns = [
 ];
 
 const handleRowClick = params => {
-   console.log(
+  console.log(
     'row clicked!',
     `
     Character="${params.row.name}" 
@@ -68,7 +63,6 @@ const handleRowClick = params => {
   // tvShows="${params.row.tvShows}"
   // VideoGames="${params.row.videoGames}"
   // image="${params.row.imageUrl}" `);
-
 };
 
 export const CharactersView = () => {
@@ -82,53 +76,38 @@ export const CharactersView = () => {
   return (
     <>
       <Container>
-      {character.loading && <div>Loading...</div>}
-      {!character.loading && character.error ? (
-        <div>Error: {character.error}</div>
-      ) : null}
-      {!character.loading && character.characters.length ? (
-        <Box sx={{ height: 800, width: '100%' }}>
-          <Typography
-            variant="h6"
-            component="h6"
-            sx={{ textAlign: 'center', mt: 3, mb: 3 }}
-          >
-            Characters
-          </Typography>
-          <DataGrid
-            getRowId={row => row._id}
-            rows={character.characters}
-            columns={columns}
-            pageSize={pageSize}
-            rowsPerPageOptions={[10, 20, 50, 100, 200, 500]}
-            //checkboxSelection
-            pagination
-            onPageSizeChange={newPageSize => setPageSize(newPageSize)}
-            autoHeight
-            onRowClick={handleRowClick}
-            //SelectionMode
-            // experimentalFeatures={{ newEditingApi: true }}
-          />
-        </Box>
-      ) : null}
+        {character.loading && <div>Loading...</div>}
+        {!character.loading && character.error ? (
+          <div>Error: {character.error}</div>
+        ) : null}
+        {!character.loading && character.characters.length ? (
+          <Box sx={{ height: 800, width: '100%' }}>
+            <Typography
+              variant="h6"
+              component="h6"
+              sx={{ textAlign: 'center', mt: 3, mb: 3 }}
+            >
+              Characters
+            </Typography>
+            <DataGrid
+              getRowId={row => row._id}
+              rows={character.characters}
+              columns={columns}
+              pageSize={pageSize}
+              rowsPerPageOptions={[10, 20, 50, 100, 200, 500]}
+              //checkboxSelection
+              pagination
+              onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+              autoHeight
+              onRowClick={handleRowClick}
+              //SelectionMode
+              // experimentalFeatures={{ newEditingApi: true }}
+            />
+          </Box>
+        ) : null}
       </Container>
     </>
   );
 };
 
-// export const CharactersModal = () => {
 
-//  // const [open, setOpen] = useState(true);
-// // const [show, setShow] = useState(true)
-//   const show = useSelector(state => state.modalShow(true));
-//   return(
-//     <>
-//         <div>
-//           <ModalView 
-//           show={show} 
-
-//           />
-//         </div>
-//             </>
-//   )
-//  }

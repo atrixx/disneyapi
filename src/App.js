@@ -1,12 +1,10 @@
 import './App.css';
-import ModalBox from './components/Modal';
-
 import { CharactersView } from './features/characters/CharactersView';
 import { ChartView } from './features/chart/ChartView';
 import { ModalView } from './features/modal/ModalView';
+import ModalBox from './components/Modal';
 
 function App() {
-  
   return (
     <><div className='chart'>
         <ChartView />

@@ -8,7 +8,7 @@ const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-      show: (state) => { state.modalShow(true)},
+      show: (state) => { state.modalShow(true) },
     }
 })
 

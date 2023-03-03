@@ -6,14 +6,14 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import { show } from './modalSlice';
+// import { show } from './modalSlice';
 
 export const ModalView = (props) => {
   const dispatch = useDispatch();
   const modalShow = useSelector(state => state.modal.modalShow);
 
   const [open, setOpen] = useState(true);
-//   const [show, setShow] = useState(props.show)
+  const [show, setShow] = useState(props.show)
   const handleOpen = () => setOpen(false);
   const handleClose = () => setOpen(false);
 
@@ -48,7 +48,6 @@ export const ModalView = (props) => {
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               {'list video games participations'}
             </Typography>
-
           </List>
           <Button sx={{ align: 'center', mt: 5 }} onClick={handleClose}>
             Close
